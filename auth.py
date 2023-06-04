@@ -1,13 +1,16 @@
+import configparser
 import jwt
 import time
 from hashlib import sha256
 
 from controller import users_in_db
 
+conf = configparser.ConfigParser()
+conf.read('config.ini')
 
-LIFETIME_TOKEN_SEC = 3200
-SECRET = '$2a$12$QiMiyseFBMWE.lhYOFajFOPU6hSr3RdyAUpmmvpmHKvdxL2/P0/M2'
-ALGO = 'HS256'
+LIFETIME_TOKEN_SEC = int(conf['AUTH']['LIFETIME_TOKEN_SEC'])
+SECRET = conf['AUTH']['SECRET']
+ALGO = conf['AUTH']['JWT_ALGO']
 
 
 def hash(string: str) -> str:
