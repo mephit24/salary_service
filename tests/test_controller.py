@@ -6,6 +6,7 @@ from controller import users_in_db, get_salary, get_date_up
 valid_login = 'test'
 invalid_login = 'sTpQVQxGRSeL9QAswCQM6bwA'
 
+
 @pytest.mark.parametrize('login, result', [(valid_login, True),
                                           (invalid_login, False),
                                           (123, False),

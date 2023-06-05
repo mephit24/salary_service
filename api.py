@@ -22,16 +22,19 @@ async def root():
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     if not auth.check_user(form_data.username, form_data.password):
         raise HTTPException(status_code=401)
-    return {"access_token": auth.create_token(form_data.username), "token_type":"bearer"}
+    return {"access_token": auth.create_token(form_data.username),
+            "token_type": "bearer"}
 
 
 @app.get('/salary')
-async def salary(token = Depends(oauth2_scheme)):
+async def salary(token=Depends(oauth2_scheme)):
     token_info = auth.check(token)
     if not token_info:
-        raise HTTPException(status_code=401, detail='You dont authorized.')
+        raise HTTPException(status_code=401,
+                            detail='You dont authorized.')
     if token_info['expires'] <= time.time():
-        raise HTTPException(status_code=401, detail='Token expired. Login again.')
+        raise HTTPException(status_code=401,
+                            detail='Token expired. Login again.')
     return {'salary': controller.get_salary(token_info['login']),
             'date up': controller.get_date_up(token_info['login'])
             }
