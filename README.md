@@ -4,17 +4,19 @@ Note: There is a demo-database with fake-users: *db.sqlite3*. It is created by u
 # 
 ## Install and run:
 
-* Clone application from Gitlab:
+* Clone the application from Gitlab or Github:
   ```bash
+  git clone https://
   git clone https://
   ```
   Or download it:
   https://
+  https://
 
-* Go to app directory:
+* Go to application directory:
   ```bash
   cd /path/to/app
-
+* If necessary, edit config.ini.
 * If you want to use Poetry:  
     - Install Poetry if it isn't:
     ```bash
@@ -24,7 +26,6 @@ Note: There is a demo-database with fake-users: *db.sqlite3*. It is created by u
     ```bash
     poetry install
     poetry shell
-
 * If you want to use Pip:
     - If you need to create virtual environment https://docs.python.org/3/library/venv.html
     - Run only for first time:
@@ -38,6 +39,15 @@ Note: There is a demo-database with fake-users: *db.sqlite3*. It is created by u
 
 * Open url http://127.0.0.1:8080/ in your internet browser.  
 Do something.
+
+## For start the application in Docker:
+* Install Docker:  
+  + https://docs.docker.com/engine/install  
+
+* Run:
+  ```bash
+  docker run -d -p 8080:8080 mephit/salary_service
+* Open url http://127.0.0.1:8080 in your internet browser.
 
 #
 ## Use:
