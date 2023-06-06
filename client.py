@@ -25,7 +25,7 @@ class Data:
 
 def login(data: Data) -> str:
     try:
-        body = f'grant_type=&username={data.login} \&password={data.password}&scope=&client_id=&client_secret='
+        body = f'grant_type=&username={data.login}&password={data.password}&scope=&client_id=&client_secret='
         headers = {'accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
         conn = http.client.HTTPConnection(data.URL, port=int(data.port))
         conn.request('POST', data.URN, body, headers)
