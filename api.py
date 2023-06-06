@@ -7,7 +7,7 @@ import auth
 import controller
 
 
-app = FastAPI(title='Salary service', docs_url='/salary_service')
+app = FastAPI(title='Salary service')
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/login')
 
