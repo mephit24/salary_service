@@ -23,7 +23,8 @@ class Data:
     URN: str
 
 
-def login(data: Data) -> str:
+def login(data: Data):
+    '''Request to login route, if successful return token.'''
     try:
         body = f'grant_type=&username={data.login}&password={data.password}&scope=&client_id=&client_secret='
         headers = {'accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
@@ -46,7 +47,7 @@ def get_info(data: Data, token: str):
             return res.decode('UTF-8')
             
 
-def hide_token(token: str) -> str:
+def hide_token(token: str):
     try:
         return f'{token[:3]}...{token[-3:]}'
     except Exception:

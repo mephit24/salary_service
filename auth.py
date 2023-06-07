@@ -14,7 +14,7 @@ ALGO = conf['AUTH']['JWT_ALGO']
 
 
 def hash(string: str) -> str:
-    ''' Create a SHA256-hash from string-argument and return it.'''
+    '''Create a SHA256-hash from string-argument and return it.'''
     hash = sha256()
     hash.update(str(string).encode())
     return hash.hexdigest()
@@ -28,7 +28,12 @@ def create_token(login: str) -> str:
     return jwt.encode(payload, SECRET, ALGO)
 
 
-def check(token):
+def check(token: str):
+    '''
+    Check that token is valid.
+    Valid token -> token: str
+    Invalid token -> False
+    '''
     decoded_token = jwt.decode(token, SECRET, ALGO)
     if decoded_token['login'] not in users_in_db():
         return False

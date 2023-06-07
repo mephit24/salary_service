@@ -15,7 +15,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/login')
 @app.get('/')
 async def root():
     return {'name': 'Salary service',
-            'version': '1.0'}
+            'version': '1.1'}
 
 
 @app.post('/login')

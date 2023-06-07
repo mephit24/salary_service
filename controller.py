@@ -18,6 +18,7 @@ def get_date_up(login: str):
 
 
 def users_in_db():
+    '''Return list of all users and their password hash from DB.'''
     try:
         return {user.login: user.passwd for user in User.select()}
     except Exception:
