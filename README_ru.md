@@ -12,11 +12,11 @@
 
 * Клонируйте приложение из Gitlab или Github:
   ```bash
-  git clone https://???
+  git clone https://gitlab.com/mephit24/salary_service.git
   git clone https://github.com/mephit24/salary_service.git
   ```
   Или скачайте архив:  
-  https://gitlab.com
+  https://gitlab.com/mephit24/salary_service/-/archive/master/salary_service-master.zip
   https://github.com/mephit24/salary_service/archive/refs/heads/master.zip
 
 * Перейдите в директорию приложения:
